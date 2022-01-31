@@ -4,11 +4,10 @@ import Login from './Login'
 import Dashboard from './Dashboard'
 import { AuthProvider, useAuth } from '../contexts/AuthContext'
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom'
-import PrivateRoute from './PrivateRoute'
 import ForgotPassword from './ForgotPassword'
 import UpdateProfile from './UpdateProfile'
 
-function App() {
+function App () {
   return (
     <Router>
       <AuthProvider>
@@ -22,7 +21,7 @@ function App() {
           </Route> */}
 
           <Route
-            path='/' 
+            path='/'
             element={
               <RequireAuth redirectTo='/login'>
                 <Dashboard />
@@ -30,7 +29,7 @@ function App() {
             }
           />
           <Route
-            path='/update-profile' 
+            path='/update-profile'
             element={
               <RequireAuth redirectTo='/login'>
                 <UpdateProfile />
