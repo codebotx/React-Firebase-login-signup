@@ -1,16 +1,19 @@
+// Depriciated
 import React from 'react'
-import { Route, Navigate, Outlet } from 'react-router-dom'
+import { Route, Navigate, Routes } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 
 export default function PrivateRoute ({ component: Component, ...rest }) {
   const { currentUser } = useAuth()
 
   return (
-    <Route
-      {...rest}
-      render={props => {
-        return currentUser ? <Outlet /> : <Navigate to='/login' />
-      }}
-    />
+    <Routes>
+      <Route
+        {...rest}
+        render={props => {
+          return currentUser ? <Component {...props} /> : <Navigate to='/login' />
+        }}
+      />
+    </Routes>
   )
 }

@@ -34,15 +34,15 @@ export default function Login () {
               {error && <Alert variant='danger'>{error}</Alert>}
 
               <Form onSubmit={handleSubmit}>
-                <Form.Group id='email'>
+                <FormGroup id='email'>
                   <Form.Label>Email</Form.Label>
                   <Form.Control type='email' ref={emailRef} required />
-                </Form.Group>
+                </FormGroup>
 
-                <Form.Group id='password'>
+                <FormGroup id='password'>
                   <Form.Label>Password</Form.Label>
                   <Form.Control type='password' ref={passwordRef} required />
-                </Form.Group>
+                </FormGroup>
                 <Button disabled={loading} className='w-100 mt-2' type='submit'>Log In</Button>
               </Form>
             </Card.Body>
